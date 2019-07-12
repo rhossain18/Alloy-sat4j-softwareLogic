@@ -1,0 +1,60 @@
+(k).
+
+; let A be an arbitrary domain
+(declare-sort A)
+; let P be an arbitrary predicate on the atoms in A
+; (note that we are using an uninterpreted boolean function to define a predicate!)
+ (declare-fun P (A) Bool)
+ (declare-fun Q (A) Bool)
+ (define-fun conjecture () Bool 
+   (=
+    (forall ((x A)) (and (P x) (Q x)))
+    (and (forall ((x A)) (P x)) (forall ((x A)) (Q x)))
+   )
+)
+; if our conjecture is valid, its negation is unsat
+(assert (not conjecture))
+(check-sat)
+
+Comment: unsat, so conjecture is valid. 
+
+
+(o).
+
+; let A be an arbitrary domain
+(declare-sort A)
+; (note that we are using an uninterpreted boolean function to define a predicate!)
+ (declare-fun S (A) Bool)
+ (declare-fun F (A) Bool)
+ (define-fun conjecture () Bool 
+   (=
+    (forall ((x A) (y A)) (=> (S y) (F x)))
+    (=> (exists ((y A)) (S y)) (forall ((x A)) (F x)))
+   )
+)
+; if our conjecture is valid, its negation is unsat
+(assert (not conjecture))
+(check-sat)
+
+Comment: unsat, so conjecture is valid. 
+
+
+(r).
+
+; let A be an arbitrary domain
+(declare-sort A)
+; let P be an arbitrary predicate on the atoms in A
+; (note that we are using an uninterpreted boolean function to define a predicate!) 
+(declare-fun P (A) Bool)
+
+(define-fun conjecture () Bool 
+  (=
+    (not (exists ((x A)) (P x)))
+    (forall ((x A)) (not (P x)))
+  )
+)
+; if our conjecture is valid, its negation is unsat
+(assert (not conjecture))
+(check-sat)
+
+Comment: unsat, so conjecture is valid. 

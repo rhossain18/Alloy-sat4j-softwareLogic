@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view>
+
+<projection> <type name="Feature"/> <type name="System"/> </projection>
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Ball"/>
+   <type name="cd"/>
+   <type name="Component"/>
+   <type name="Delay"/>
+   <type name="Delegation"/>
+   <type name="dpi"/>
+   <type name="dri"/>
+   <type name="Dry"/>
+   <type name="Feature"/>
+   <type name="Heat"/>
+   <type name="Heater"/>
+   <type name="Int"/>
+   <type name="MainController"/>
+   <type name="Socket"/>
+   <type name="String"/>
+   <type name="System"/>
+   <type name="univ"/>
+   <type name="W1"/>
+   <type name="seq/Int"/>
+   <set name="components" type="Component"/>
+   <set name="delegations" type="Delegation"/>
+</node>
+
+</view>
+
+</alloy>
